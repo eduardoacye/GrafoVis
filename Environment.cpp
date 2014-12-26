@@ -254,6 +254,21 @@ void* preShowMessage(void* message)
     return NULL;
 }
 
+void* prePosNode(void* id)
+{
+    QPointF pos = env->visPosNode(preToInt(id));
+    double x = pos.x();
+    double y = pos.y();
+
+    return NULL;
+}
+
+void* preMoveNode(void* id, void* dx, void* dy)
+{
+    env->visMoveNode(preToInt(id), preToDouble(dx), preToDouble(dy));
+    return NULL;
+}
+
 void Environment::initForeign()
 {
     // TO DO
@@ -455,6 +470,9 @@ Environment::Environment(QWidget *parent) :
                 vis_scene, SLOT(visIncrementId()));
         connect(this,      SIGNAL(visResetId()),
                 vis_scene, SLOT(visResetId()));
+
+        connect(this,      SIGNAL(visMoveNode(int,double,double)),
+                vis_scene, SLOT(visMoveNode(int,double,double)));
     }
 
     env = this;
@@ -654,4 +672,9 @@ void Environment::visRemoveArrow(int aid, int bid)
 {
     QString code = removeArrowCode(aid, bid);
     evalString(code);
+}
+
+QPointF Environment::visPosNode(int id)
+{
+    return vis_scene->visPosNode(id);
 }

@@ -30,6 +30,8 @@ public:
 
     int id() { return current_id; }
 
+    QPointF visPosNode(int id);
+
     QList<int> graph_node_ids() { return graph_nodes.keys(); }
 
 private:
@@ -87,6 +89,8 @@ public slots:
     void visUncolorArrowLabel(int aid, int bid);
     void visIncrementId();
     void visResetId();
+
+    void visMoveNode(int id, double dx, double dy);
 };
 
 #endif // VISGRAPHICSSCENE_HPP

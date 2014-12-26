@@ -447,3 +447,16 @@ void VisGraphicsScene::visResetId()
 {
     current_id = 0;
 }
+
+QPointF VisGraphicsScene::visPosNode(int id)
+{
+    node = graph_nodes[id];
+    return node->pos();
+}
+
+void VisGraphicsScene::visMoveNode(int id, double dx, double dy)
+{
+    node = graph_nodes[id];
+    node->moveBy(dx,dy);
+    node->update();
+}

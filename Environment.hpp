@@ -39,6 +39,9 @@ public:
     friend void* preWait(void*);
     friend void* preShowMessage(void*);
 
+    friend void* visPosNode(void* id);
+    friend void* visMoveNode(void* id, void* dx, void* dy);
+
     explicit Environment(QWidget *parent = 0);
     ~Environment();
 
@@ -57,6 +60,8 @@ public:
     bool on_pause;
 
     VisGraphicsScene::GRAPH graphType() {return vis_scene->graph_type;}
+
+    QPointF visPosNode(int id);
 
 
 private:
@@ -97,6 +102,8 @@ signals:
     void visUncolorArrowLabel(int aid, int bid);
     void visIncrementId();
     void visResetId();
+
+    void visMoveNode(int id, double dx, double dy);
 
 
 public slots:

@@ -10,6 +10,8 @@ VisLabel::VisLabel(QString text, QGraphicsItem* parent)
     setFlags(ItemIsSelectable | ItemIsMovable | ItemIsFocusable);
     setTextInteractionFlags(Qt::NoTextInteraction);
     setZValue(30);
+
+    setCacheMode(QGraphicsItem::DeviceCoordinateCache);
 }
 
 void VisLabel::set_highlight(int r,int g,int b,int a)

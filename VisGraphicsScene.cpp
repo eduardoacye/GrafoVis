@@ -15,6 +15,7 @@
 VisGraphicsScene::VisGraphicsScene(QObject* parent)
     : QGraphicsScene(parent)
 {
+    setItemIndexMethod(QGraphicsScene::NoIndex);
     mode = EDIT;
     graph_type = UNDIRECTED;
     current_id = 0;

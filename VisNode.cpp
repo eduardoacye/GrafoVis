@@ -19,6 +19,8 @@ VisNode::VisNode(int id_, double x, double y, QString label_text, QGraphicsItem*
     id = id_;
     setPos(x, y);
     label = new VisLabel(label_text);
+
+    setCacheMode(QGraphicsItem::DeviceCoordinateCache);
 }
 
 VisNode::~VisNode()

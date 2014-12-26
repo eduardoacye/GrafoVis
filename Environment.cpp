@@ -419,6 +419,13 @@ Environment::Environment(QWidget *parent) :
         connect(this,      SIGNAL(visUnpaintArrow(int,int)),
                 vis_scene, SLOT(visUnpaintArrow(int,int)));
 
+        connect(this,      SIGNAL(visLabelNode(int,QString)),
+                vis_scene, SLOT(visLabelNode(int,QString)));
+        connect(this,      SIGNAL(visLabelEdge(int,int,QString)),
+                vis_scene, SLOT(visLabelEdge(int,int,QString)));
+        connect(this,      SIGNAL(visLabelArrow(int,int,QString)),
+                vis_scene, SLOT(visLabelArrow(int,int,QString)));
+
         connect(this,      SIGNAL(visColorNode(int,int,int,int,int)),
                 vis_scene, SLOT(visColorNode(int,int,int,int,int)));
         connect(this,      SIGNAL(visUncolorNode(int)),
